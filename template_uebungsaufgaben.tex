@@ -1,0 +1,126 @@
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage[a4paper, left=2cm, right=2cm, 
+%top=3cm, 
+bottom=3cm]{geometry}
+\usepackage[utf8]{inputenc} %deutsche Umlaute
+\usepackage[ngerman]{babel} %deutsche Sprache
+\usepackage{graphicx} %für Bilder
+\usepackage{booktabs} %für \toprule \midrule \bottomrule in Tabellen
+\usepackage{siunitx}
+\sisetup{output-decimal-marker = {,}}
+\usepackage{lmodern}
+\usepackage[inline]{enumitem}   
+\usepackage{color,colortbl}
+\usepackage{rotating}
+\usepackage{wrapfig}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage[export]{adjustbox}
+\usepackage{csquotes}
+\usepackage[gen]{eurosym}
+\usepackage{amsmath}
+\usepackage{footnote}
+\makesavenoteenv{tabular}
+\usepackage{esint}
+\usepackage{xcolor}
+\usepackage{subcaption}
+\usepackage{multicol, supertabular}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{exsheets}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{MnSymbol}
+%\usepackage{hyperref}
+\newcommand{\diff}{\mathop{}\!\mathrm{d}}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{multirow}
+\usepackage{tabularx}
+\setlength{\parindent}{0pt}
+\newcommand{\Unterichtsreihe}{Übungsaufgaben} 
+\newcommand{\Thema}{Maschinenelemente: Schweißverbindungen} 
+\newcommand{\Ersteller}{Klasse: \dotfill \qquad \qquad} 
+\newcommand{\Semester}{Datum: \dotfill}  
+
+\usepackage[headsepline,automark]{scrlayer-scrpage} 
+
+\clearpairofpagestyles
+\chead{%
+	\begin{tabular}{cp{8cm}}
+	\multirow{3}{2.7cm}{\includegraphics[width=2.7cm,margin=0pt 0ex 0pt -4.5pt]{logo}}&\multicolumn{1}{l}{Schule}\\
+	&\Unterichtsreihe\\
+	&\Thema
+\end{tabular}%
+}%
+\addtokomafont{pagehead}{\normalfont}
+%\cfoot{\pagemark}
+\pagestyle{headings}
+\definecolor{bluee}{RGB}{100,149,237}
+
+
+\renewcommand{\labelenumi}{\alph{enumi}.)}
+\begin{document}
+\begin{question}
+	Ein Flachstab EN $10058-80\times8$ aus S235 mit Stumpfstoß soll eine Zugkraft $F= \SI{125}{\kilo\newton}$ übertragen. Durch Auslaufbleche Wird für eine kraterfreie Ausführung der Nahtenden gesorgt. Die Nahtgüte Wird nicht nachgewiesen.	Es ist zu prüfen, ob der Stab ausreichend bemessen ist.
+	\begin{figure}[H]
+		\centering\includegraphics[width=.8\columnwidth]{logo}
+	\end{figure}
+\end{question}
+\begin{solution}[print]
+Bauteil: $\sigma_z = \SI{195}{N\per mm^2}  < \sigma_{\text{zul}} = \SI{218}{N\per mm^2} (A = \SI{80}{mm} \cdot\SI{80}{mm} = \SI{640}{mm^2}).$
+
+Schweißnaht: $\sigma_\bot = \SI{195}{N\per mm^2} < \sigma_{\text{w zul}} = \SI{207}{N\per mm^2}$ $(A_w = \SI{640}{mm^2}; \sigma_{\text{w zul}} = \SI{207}{N\per mm^2}$, da Güte der Stumpfnaht nicht nachgewiesen).
+
+Der Zugstab ist nach DIN 18800-1 ausreichend bemessen.
+\end{solution}
+\begin{question}
+Ein Zugstab aus Breitflachstahl nach DIN $59200-S355-200\times15$ Wird durch eine auf der ganzen Länge vollwertige Stumpfnaht gestoßen. Zu ermitteln ist die vom Stab übertragbare Zugkraft $F_{\text{max}}$ bei
+\begin{enumerate}
+	\item nachgewiesener Nahtgüte
+	\item nicht nachgewiesener Nahtgüte
+\end{enumerate}
+\begin{figure}[H]
+	\centering\includegraphics[width=.8\columnwidth]{logo}
+\end{figure}
+\end{question}
+\begin{solution}[print]
+	\begin{enumerate}
+		\item $F_{max}= \SI{327}{N\per mm^2}\cdot\SI{3000}{mm^2}= \SI{981}{kN} (A_w = A =\SI{200}{mm}\cdot \SI{15}{mm} = \SI{3000}{mm},\sigma_{\text{zul}} = \sigma_{\text{w zul}}= \frac{\SI{360}{N\per mm^2}}{1,1}= \SI{327}{N\per mm^2}, R_e=\SI{360}{N\per mm^2}$ für S355, $S_M = 1$, Bauteilfestigkeit
+		maßgebend).
+		\item $F_{max}= \SI{262}{N\per mm^2}\cdot\SI{3000}{mm^2}= \SI{786}{kN}$ ($\sigma_{\text{w zul}} = 0,8\cdot\frac{\SI{360}{N\per mm^2}}{1,1}= \SI{262}{N\per mm^2}$, bei Zugbeanspruchung und nicht nachgewiesener Nahtgüte, $\alpha_w = 0,8$). Die zulässige Stabkraft ist um \SI{20}{\percent} kleiner ($\alpha_w = 0,8$) als mit Durchstrahlungsprüfung. Bei längeren Stäben wiegt der eingesparte Werkstoff die Prüfkosten auf.
+	\end{enumerate}
+\end{solution}
+
+\begin{question}
+	Ein Winkel EN $10 056-1-60\times60\times6$ soll durch \SI{3}{mm} dicke Flanken- und Stirnkehlnähte	an ein \SI{8}{mm} dickes Knotenblech angeschlossen werden. Der Stab aus S235JR, dessen Achse im Anschlussbereich rechtwinklig zum Knotenblechrand verläuft, hat eine	Zugkraft $F=\SI{115}{kN}$ zu übertragen. Zu berechnen ist die Länge der Flankenkehlnähte (Überlapplänge) bei
+	\begin{enumerate}
+		\item einer Stirnkehlnaht am Knotenblechrand nach Bild a‚ \item einer ringsumlaufenden Kehlnaht nach Bild b.
+	\end{enumerate}
+	\begin{figure}[H]
+	\centering\includegraphics[width=.8\columnwidth]{logo}
+\end{figure}
+\end{question}
+\begin{solution}[print]
+	\begin{enumerate}
+		\item $\sigma_{\text{w zul}}=\tau_{\text{w zul}}=\SI{207}{N\per mm^2}>\sigma_{\text{wv}} \quad\rightarrow\quad A_{\text{w erf}}=\frac{F}{\sigma_{\text{w zul}}}=\SI{555.55}{mm^2} \quad\rightarrow\quad A_{\text{w horizantal}}= A_{\text{w erf}}-\SI{3}{mm}\cdot\SI{60}{mm}=\SI{375,55}{mm^2}\quad\rightarrow\quad l=\frac{A_{\text{w horizantal}}}{2\cdot a}=\SI{62.59}{mm}$
+		\item $A_{\text{w horizantal}}=\SI{195.55}{mm^2}$
+	\end{enumerate}
+\end{solution}
+\clearpage
+\begin{question}
+	Zur Lagerung eines Behälters ist ein \SI{12}{mm} dickes Konsolblech aus S235JR ($I=\SI{15.68e6}{mm^4}$)mit einer ringsum verlaufenden Kehlnaht $a=\SI{4}{mm}$ an eine Stütze zu schweißen. Für die Auflagerkraft $F=\SI{68}{kN}$ ist festigkeitsmäßig zu prüfen
+	\begin{enumerate}
+		\item der Anschlussquerschnitt des Konsolenbleches neben der Naht (Bild b),\item der Schweißanschluss (Bild c).
+	\end{enumerate}
+	\begin{figure}[H]
+	\centering\includegraphics[width=.8\columnwidth]{logo}
+\end{figure}
+\end{question}
+\begin{solution}[print]
+	\begin{enumerate}
+		\item Randspannung $ M_\text{b}=F\cdot l=\SI{12.24e6}{Nmm}; \sigma=\frac{M_b}{W}=\frac{M_b\cdot \frac{\SI{250}{mm}}{2}}{I}=\SI{97.576}{N\per mm^2}<\sigma_{\text{zul}}=\SI{218}{N\per mm^2}$, mittlere Schubspannung $A=\SI{3000}{mm^2}; \tau_\text{m}=\frac{F}{A}=\SI{23}{N\per mm^2}<\tau_{\text{zul}}=\SI{126}{N\per mm^2}, ;$ Vergleichsspannung: $\sigma_v=\sqrt{\sigma_\text{b}^2+3\tau_\text{m}^2}=\SI{105.4}{N\per mm^2}<\sigma_{\text{zul}}$ 
+		\item $A_{\text{wS}}=\SI{2000}{mm^2}; \tau_{\parallel}=\frac{F}{A_{\text{wS}}}=\SI{34}{N\per mm^2}; I_{\text{w}}=\frac{\SI{4}{mm}\cdot\SI{250}{mm}^3}{12}\cdot 2=\SI{5208333.333}{mm^4}; \sigma{\bot}=\frac{M_b}{I_{\text{W}}}\cdot \SI{125}{mm}=\SI{146.88}{N\per mm^2}; \quad \sigma_{\text{wv}}=\SI{151}{N\per mm^2}<\sigma_{\text{w zul}}=\SI{207}{N\per mm^2} $ 
+	\end{enumerate}
+\end{solution}
+\end{document}

@@ -1,0 +1,172 @@
+%Das Dokument ist zweizeilig!
+\documentclass[11pt,a4paper,twocolumn]{scrartcl}
+\usepackage[a4paper, left=2cm, right=2cm, %top=3.5cm, 
+bottom=0cm]{geometry}
+\usepackage[utf8]{inputenc} %deutsche Umlaute
+\usepackage[ngerman]{babel} %deutsche Sprache
+\usepackage{graphicx} %für Bilder
+\usepackage{booktabs} %für \toprule \midrule \bottomrule in Tabellen
+\usepackage{siunitx}
+\usepackage{lmodern}
+\usepackage[export]{adjustbox}
+\usepackage[inline]{enumitem}   
+\usepackage{color,colortbl}
+\usepackage{rotating}
+\usepackage{wrapfig}
+\usepackage{colortbl}
+\usepackage[table,dvipsnames]{xcolor}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{csquotes}
+\usepackage[gen]{eurosym}
+\usepackage{amsmath}
+\usepackage{esint}
+\usepackage{xcolor}
+\usepackage{multicol, supertabular}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{MnSymbol}
+%\usepackage{hyperref}
+\newcommand{\diff}{\mathop{}\!\mathrm{d}}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{multirow}
+\usepackage{tabularx}
+\setlength{\parindent}{0pt}
+\sisetup{output-decimal-marker = {,}}
+%Eingabe Kopfzeile
+\newcommand{\Unterichtsreihe}{Formelsammlung} 
+\newcommand{\Thema}{Maschinenelemente: Schweißverbindungen} 
+\newcommand{\Ersteller}{Klasse: \dotfill \qquad \qquad} 
+\newcommand{\Semester}{Datum: \dotfill}  
+%Breite der Spalten
+\newcommand{\ceins}{2.5cm}
+\newcommand{\czwei}{5cm}  
+\newcommand{\cges}{7cm}    
+
+\usepackage[headsepline,automark]{scrlayer-scrpage} 
+%Ausgabe Kopfzeile
+\clearpairofpagestyles
+\chead{%
+	\begin{tabular}{cp{8cm}}
+	\multirow{3}{2.7cm}{\includegraphics[width=2.7cm,margin=0pt 0ex 0pt -4.5pt]{logo}}&\multicolumn{1}{l}{Schule}\\
+	&\Unterichtsreihe\\
+	&\Thema
+\end{tabular}%
+}%
+\addtokomafont{pagehead}{\normalfont}
+%\cfoot{\pagemark}
+\pagestyle{headings}
+\definecolor{bluee}{RGB}{100,149,237}
+
+
+%Anfang Dokument
+\begin{document}
+\renewcommand{\arraystretch}{1.1}	
+\begin{tabular}{p{\cges}}
+	\arrayrulecolor{blue}
+	\begin{tabular}{|p{\ceins}|p{\czwei}|}
+	\multicolumn{2}{c}{\textbf{\Large Allgemein}}\\\hline
+	Zulässige Normalspannung&$\sigma_{\text{zul}}=\frac{R_e}{S_M}=\frac{R_e}{1,1}$\\\hline
+	Zulässige Schubspannung&$\tau_{\text{zul}}=\frac{R_e}{\sqrt{3}\cdot S_M}=\frac{R_e}{\sqrt{3}\cdot 1,1}$\\\hline
+\end{tabular}
+%Tabellenfarbe
+\arrayrulecolor{red}
+\begin{tabular}{|p{\ceins}|p{\czwei}|}
+	\multicolumn{2}{c}{\textbf{\Large Zugstäbe}}\\\hline
+	Schlankheit&$$\frac{b}{t}\leq\left(\frac{b}{t}\right)_{\text{Grenz}}$$\\\hline
+	Zugspannung&$$\sigma_z=\frac{F_N}{A}\leq\sigma_{\text{zul}}$$\\\hline
+	Biegemoment&$$ M_b=F\cdot (e+0,5t)$$\\\hline
+	Biegespannung&$$ \sigma_b=\frac{M_b}{W}=\frac{M_b\cdot e}{I}$$\\\hline
+	\multicolumn{2}{|c|}{\includegraphics[width=\cges]{logo}}\\\hline
+	Maximale Spannung&$$ \sigma_{\text{max}}=\sigma_z+\sigma_b\leq \sigma_{\text{zul}}$$\\\hline
+\end{tabular}
+	\arrayrulecolor{green}
+\begin{tabular}{|p{\ceins}|p{\czwei}|}
+	\multicolumn{2}{c}{\textbf{\Large Druckstäbe}}\\\hline
+	Druckspannung&$$\sigma_d=\frac{F_N}{A}\leq\sigma_{\text{zul}}$$\\\hline
+	Grobe Vorbemessung&\begin{gather*}A_{\text{erf}}\approx\frac{F}{12}...\frac{F}{10}\\ I_{\text{erf}}\approx 0,12\cdot F\cdot l_k^2\end{gather*} mit $F$ in kN, $l_k$ in m, $A_{\text{erf}}$ in \SI{}{cm^2} und $I_{\text{erf}}$ in \SI{}{cm^4}	\\\hline
+\end{tabular}
+%Hier wird der Umbruch gemacht.
+\end{tabular}
+\begin{tabular}{p{\cges}}
+	\arrayrulecolor{green}
+	\begin{tabular}{|p{\ceins}|p{\czwei}|}	\hline
+		Schlankheits-grad&\begin{gather*}\lambda_{kx}=\frac{l_k}{\sqrt{\frac{I_x}{A}}}\\\lambda_{ky}=\frac{l_k}{\sqrt{\frac{I_y}{A}}}\end{gather*}\\\hline
+	\multicolumn{2}{|c|}{\includegraphics[width=\cges]{logo}}\\\hline
+	Ideale Knicklast&$$\lambda_{a}=\pi\sqrt{\frac{E}{R_e}}$$\\\hline
+	bezogener Schlankheitsgrad&\begin{gather*}\overline{\lambda_{kx}}=\frac{\lambda_{kx}}{\lambda_{a}}\\\overline{\lambda_{ky}}=\frac{\lambda_{ky}}{\lambda_{a}}\end{gather*}\\\hline
+		Druckkraft in vollplastischen Zustand&$$F_{pl}=\frac{A\cdot R_e}{S_M}$$\\\hline
+		Bemessungswert der Stab-Druckkraft&$$\frac{F}{\kappa\cdot F_{pl}}\leq1$$\\\hline
+\end{tabular}	
+	
+
+\end{tabular}
+
+\begin{tabular}{p{\cges}}
+		\arrayrulecolor{gray}
+	\begin{tabular}{|p{\ceins}|p{\czwei}|}
+		\multicolumn{2}{c}{\textbf{\Large Knotenbleche}}\\\hline
+		Normal-spannung&$$\sigma=\frac{F}{b\cdot t_K}\leq\sigma_{\text{zul}}$$\\\hline
+		\multicolumn{2}{|c|}{\includegraphics[width=\cges]{logo}}\\\hline
+	\end{tabular}
+	\arrayrulecolor{Tan}
+	\begin{tabular}{|p{\ceins}|p{\czwei}|}
+		\multicolumn{2}{c}{\textbf{\Large Einfache Biegeträger}}\\\hline
+		Normal-spannung&$$\sigma=\frac{F_N}{A}+\frac{M_x}{W_x} \leq \sigma_{\text{zul}}$$\\\hline
+		Schubspannung&$$\tau_m=\frac{F_q}{A_s}\leq \tau_{\text{zul}}$$\\\hline
+		Vergleichs-spannung&\begin{gather*}\sigma_v=\sqrt{\sigma^2+3\tau_m^2}\leq\sigma_{\text{zul}}\end{gather*}\\\hline
+	\end{tabular}
+	\arrayrulecolor{ForestGreen}
+\begin{tabular}{|p{\ceins}|p{\czwei}|}
+	\multicolumn{2}{c}{\textbf{\Large Schweißnähte im Stahlbau}}\\\hline
+	Stumpfnähte&$$ a=t_{\text{min}}$$\\\hline
+	Kehlnähte&\begin{gather*}\SI{2}{mm}\leq a \leq 0,7t_{\text{min}}\\ a\leq\sqrt{t_{\text{max}}}-\SI{0.5}{mm}\end{gather*}\\\hline	
+\end{tabular}
+\end{tabular}
+\begin{tabular}{p{\cges}}
+	\arrayrulecolor{ForestGreen}
+\begin{tabular}{|p{\ceins}|p{\czwei}|}\hline
+	\multicolumn{2}{c}{\quad}\\
+	\multicolumn{2}{c}{\textbf{\Large Festigkeitsnachweis}}\\\hline
+	Vergleichs-spannung&\begin{gather*}\sigma_{\text{wv}}=\sqrt{\sigma_{\bot}^2+\tau_{\parallel}^2+\tau_{\bot}^2}\leq\sigma_{\text{w zul}}\end{gather*}\\\hline	
+	\multicolumn{2}{|c|}{\includegraphics[width=\cges]{logo}}\\\hline
+	Beanspruchung auf Zug, Druck oder Schub&\begin{gather*}\left. \begin{matrix}\sigma_{\bot} \\\tau_{\bot} \\	\tau_{\parallel} \end{matrix}\right\}=\frac{F}{A_{\text{w}}}=\frac{F}{\Sigma(a\cdot l)}\leq \\\sigma_{\text{w zul}}=\tau_{\text{w zul}} \end{gather*}\\\hline
+	Auf Biegung und Querkraft beanspruchter Kehlnahtanschluss&\begin{gather*}\sigma_{\bot}=\frac{M}{I_{\text{w}}}\cdot y\leq \sigma_{\text{w zul}}\\\tau_{\parallel}=\frac{F_\text{q}}{A_{\text{wS}}}\leq\tau_{\text{w zul}}\\=\sigma_{\text{w zul}} \end{gather*} ($A_{\text{wS}}$ ist die Querschnittsfläche die parallel zur Querkraft verläuft, z.B. $A_\text{w3}$)\\\hline
+	Flächen-trägheits-moment der Schweißnaht&$$I_{\text{w}i}=\frac{b\cdot h^3}{12}$$\\\hline
+	\multicolumn{2}{|c|}{\includegraphics[width=\cges]{logo}}\\\hline
+	
+	\end{tabular}
+
+\end{tabular}
+
+\begin{tabular}{p{\cges}}
+	\arrayrulecolor{ForestGreen}
+	\begin{tabular}{|p{\ceins}|p{\czwei}|}\hline
+	Gesamtes Flächen-trägheits-moment&\begin{gather*}I_{\text{w}}=\Sigma I_{\text{w}i}+\Sigma y_i^2\cdot A_{\text{w}i}  \end{gather*}\\\hline
+Bei Anschlüssen mit doppeltsymmetrischen I-Profilen &\begin{gather*}\sigma_{\bot}=\sigma_{\bot\text{zd}}+\sigma_{\bot\text{b}}\\=\frac{\frac{F_N}{2}+\frac{M}{h_F}}{A_{\text{wF}}} \leq \sigma_{\text{w zul}} \end{gather*}\\\hline
+\multicolumn{2}{|c|}{\includegraphics[width=\cges]{logo}}\\\hline
+	\end{tabular}
+\arrayrulecolor{black}	
+	\begin{tabular}{|p{\ceins}|p{\czwei}|}\hline
+	\multicolumn{2}{c}{\textbf{\Large Legende}}\\\hline
+	\textbf{Formel-zeichen}&\textbf{Bedeutung}\\\hline 
+	$a$&Schweißnahthöhe\\\hline
+	$A_\text{w}$&Querschnittsfläche der Schweißnaht\\\hline
+	$b$&Breite\\\hline
+	$F_N$&Normalkraft\\\hline
+	$F_q$&Querkraft\\\hline
+	$t$&Dicke\\\hline
+	$t_K$&Dicke des Knotenblechs\\\hline
+	$M_b$&Biegemoment\\\hline
+	$I$&Flächenträgheitsmoment\\\hline
+	$I_{\text{w}}$&Flächenträgheitsmoment der Schweißnaht\\\hline
+	$R_e$&Streckgrenze\\\hline
+	$S_M$&Sicherheitsfaktor ($S_M=1,1$)\\\hline
+\end{tabular}
+\end{tabular}
+
+
+\end{document}
